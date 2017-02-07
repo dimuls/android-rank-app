@@ -4,7 +4,7 @@
 
 # Run in development mode
 
-    $ carton exec morbo hypnotoad android-rank-app.pl
+    $ carton exec morbo android-rank-app.pl
 
 # Run in production mode
 
