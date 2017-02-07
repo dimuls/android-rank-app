@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <%= stylesheet '/css/lib/semantic.css' %>
+    <%= stylesheet '/css/layouts/default.css' %>
+    <%= content_for 'css' %>
+  </head>
+  <body>
+    <div class="ui text container">
+      <%= content %>
+    </div>
+    <%= javascript '/js/lib/lodash.js' %>
+    <%= javascript '/js/lib/jquery.js' %>
+    <%= javascript '/js/lib/knockout.js' %>
+    <%= javascript '/js/lib/semantic.js' %>
+    <%= content_for 'js' %>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+% layout 'default';
+% title 'AndroidRank';
+
+% content_for 'js' => begin
+%= javascript '/js/index.js'
+% end
+
+<div data-bind="css: { action: isCleanable }" class="ui fluid massive input">
+  <input data-bind="textInput: suggestQuery" placeholder="Search app..." type="text">
+  <!-- ko if: isCleanable  -->
+    <button data-bind="click: clean" class="ui button">Clean</button>
+  <!-- /ko -->
+</div>
+
+<!-- ko if: suggest -->
+  <div data-bind="foreach: suggest" class="ui middle aligned selection list">
+    <div data-bind="click: $parent.selectSuggest" class="item">
+      <div data-bind="text: title" class="header"></div>
+      <span data-bind="text: ext_id"></span>
+    </div>
+  </div>
+<!-- /ko -->
+
+<!-- ko if: details -->
+  <div class="ui section divider"></div>
+  <!-- ko with: details -->
+    <h1 class="ui header">
+      <img data-bind="attr: { src: icon }" class="ui image">
+      <div class="content">
+        <span data-bind="text: title"></span>
+        <div class="sub header">
+          by <span data-bind="text: artist_name"></span>
+        </div>
+      </div>
+    </h1>
+    <p data-bind="text: short_text"></p>
+  <!-- /ko -->
+<!-- /ko -->
